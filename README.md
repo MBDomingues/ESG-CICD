@@ -1,30 +1,15 @@
-# Projeto - Energia Certa ESG
+# Projeto - Cidades ESGInteligentes
 
 Sistema de cadastro de fornecedores com banco de dados SQLite e pipeline CI/CD via GitHub Actions.
 
----
-
-## Como executar localmente
-
-### Com Docker (recomendado)
+## Como executar localmente com Docker
 
 ```bash
 docker compose up --build
 ```
 
 Acesse `http://localhost:3000` — ambiente de produção.
-Ambiente de staging roda em `http://localhost:3001` (docker compose: `app-staging` service).
-
-### Sem Docker
-
-```bash
-npm install
-npm start
-```
-
-Acesse `http://localhost:3000`.
-
----
+Ambiente de staging roda em `http://localhost:3001`.
 
 ## Pipeline CI/CD
 
@@ -35,8 +20,6 @@ Utiliza **GitHub Actions** (`.github/workflows/ci.yml`) com 3 jobs:
 3. **Deploy Production** — builda imagem Docker, inicia container e valida health check na porta 3000
 
 A pipeline dispara em pushes para `main` e em pull requests.
-
----
 
 ## Containerização
 
@@ -66,33 +49,23 @@ CMD ["node", "src/server.cjs"]
 - Rede bridge isolada (`esg_network`)
 - Healthcheck configurado
 
----
+## Prints do funcionamento
 
-## Estrutura do projeto
+![Tela inicial](./prints/15.00.37.png)
 
-```
-ESG-CICD/
-├── src/
-│   ├── server.cjs      # Express + rotas
-│   ├── database.cjs    # SQLite (better-sqlite3) + seed
-│   ├── seed.cjs        # Dados iniciais (10+ registros)
-│   └── routes.cjs      # CRUD para todas as collections
-├── data/               # Arquivo SQLite (esquema: fornecedores, metricas_energia, alertas_consumo, auditorias, treinamentos)
-├── tests/
-│   └── api.test.cjs    # Testes automatizados
-├── .github/
-│   └── workflows/
-│       └── ci.yml      # Pipeline CI/CD
-├── Dockerfile
-├── docker-compose.yml
-├── .env.example
-├── index.html
-├── script.js
-├── styles.css
-└── package.json
-```
+![Funcionalidade](./prints/15.35.37.png)
 
----
+![Funcionamento](./prints/15.39.35.png)
+
+![Detalhes](./prints/15.39.59.png)
+
+![Integração](./prints/15.40.14.png)
+
+![Resultado](./prints/15.40.29.png)
+
+![Screencast 1](./prints/16.22.41.png)
+
+![Screencast 2](./prints/16.22.53.png)
 
 ## Tecnologias utilizadas
 
@@ -103,4 +76,3 @@ ESG-CICD/
 - **Containerização:** Docker + Docker Compose
 - **Testes:** Node.js `assert` (sem dependências externas)
 - **Tema ESG:** Eficiência energética e sustentabilidade — monitoramento de consumo, alertas automáticos, auditorias de conformidade
-
