@@ -83,13 +83,13 @@ CMD ["node", "src/server.cjs"]
 
 | Item | OK |
 |---|---|
-| Projeto compactado em .ZIP com estrutura organizada | |
-| Dockerfile funcional | |
-| docker-compose.yml ou arquivos Kubernetes | |
-| Pipeline com etapas de build, teste e deploy | |
-| README.md com instruções e prints | |
-| Documentação técnica com evidências (PDF ou PPT) | |
-| Deploy realizado nos ambientes staging e produção | |
+| Projeto compactado em .ZIP com estrutura organizada |OK|
+| Dockerfile funcional |OK|
+| docker-compose.yml ou arquivos Kubernetes |OK|
+| Pipeline com etapas de build, teste e deploy |OK|
+| README.md com instruções e prints |OK|
+| Documentação técnica com evidências (PDF ou PPT) |OK|
+| Deploy realizado nos ambientes staging e produção |OK|
 
 ## Tarefas do Projeto
 
