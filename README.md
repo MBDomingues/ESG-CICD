@@ -51,9 +51,14 @@ CMD ["node", "src/server.cjs"]
 
 ## Prints do funcionamento
 
-![Tela inicial](./prints/15.00.37.png)
+
+![Screencast 1](./prints/16.22.41.png)
+
+![Screencast 2](./prints/16.22.53.png)  
 
 ![Funcionalidade](./prints/15.35.37.png)
+
+![Tela inicial](./prints/15.00.37.png)
 
 ![Funcionamento](./prints/15.39.35.png)
 
@@ -62,10 +67,7 @@ CMD ["node", "src/server.cjs"]
 ![Integração](./prints/15.40.14.png)
 
 ![Resultado](./prints/15.40.29.png)
-
-![Screencast 1](./prints/16.22.41.png)
-
-![Screencast 2](./prints/16.22.53.png)
+      
 
 ## Tecnologias utilizadas
 
@@ -76,3 +78,31 @@ CMD ["node", "src/server.cjs"]
 - **Containerização:** Docker + Docker Compose
 - **Testes:** Node.js `assert` (sem dependências externas)
 - **Tema ESG:** Eficiência energética e sustentabilidade — monitoramento de consumo, alertas automáticos, auditorias de conformidade
+
+## Checklist de Entrega
+
+| Item | OK |
+|---|---|
+| Projeto compactado em .ZIP com estrutura organizada | |
+| Dockerfile funcional | |
+| docker-compose.yml ou arquivos Kubernetes | |
+| Pipeline com etapas de build, teste e deploy | |
+| README.md com instruções e prints | |
+| Documentação técnica com evidências (PDF ou PPT) | |
+| Deploy realizado nos ambientes staging e produção | |
+
+## Tarefas do Projeto
+
+- [x] Criar estrutura do projeto (Dockerfile, docker-compose.yml, src/, .github/workflows/)
+- [x] Implementar API REST com Express + SQLite (fornecedores, métricas, alertas, auditorias, treinamentos)
+- [x] Criar frontend (HTML/CSS/JS) com dashboard ESG
+- [x] Configurar seed de dados iniciais
+- [x] Escrever testes automatizados da API
+- [x] Criar Dockerfile funcional (Node.js 20 Alpine)
+- [x] Configurar docker-compose.yml com staging e produção
+- [x] Configurar pipeline CI/CD com GitHub Actions (build, teste, deploy staging, deploy produção)
+- [x] Adicionar .env.example e .dockerignore
+- [x] Adicionar prints de funcionamento ao README
+- [x] Criar documentação técnica em PDF (DevOps_Energia_Certa.pdf)
+- [x] Gerar .ZIP do projeto para entrega
+- [x] Preencher checklist de entrega no PDF
