@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - PORT=3000
+      - DB_PATH=/app/data/esg.db
+    volumes:
+      - db_data:/app/data
+    networks:
+      - esg_network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  app-staging:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=staging
+      - PORT=3000
+      - DB_PATH=/app/data/esg_staging.db
+    volumes:
+      - staging_data:/app/data
+    networks:
+      - esg_network
+
+volumes:
+  db_data:
+  staging_data:
+
+networks:
+  esg_network:
+    driver: bridge

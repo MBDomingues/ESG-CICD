@@ -1,0 +1,89 @@
+name: ESG App CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: |
+          # Start server in background
+          PORT=3000 node src/server.cjs &
+          sleep 3
+          # Run tests
+          npm test
+        env:
+          DB_PATH: /tmp/test_esg.db
+
+  deploy-staging:
+    name: Deploy Staging
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Docker image for staging
+        run: docker build -t energia-certa:v${{ github.run_number }}-staging .
+
+      - name: Run staging container
+        run: |
+          docker run -d --name staging \
+            -p 3001:3000 \
+            -e NODE_ENV=staging \
+            energia-certa:v${{ github.run_number }}-staging
+          sleep 5
+          curl -f http://localhost:3001/api/health
+
+      - name: Stop staging container
+        if: always()
+        run: docker rm -f staging || true
+
+  deploy-production:
+    name: Deploy Production
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image for production
+        run: docker build -t energia-certa:v${{ github.run_number }} .
+
+      - name: Run production container
+        run: |
+          docker run -d --name production \
+            -p 3000:3000 \
+            -e NODE_ENV=production \
+            energia-certa:v${{ github.run_number }}
+          sleep 5
+          curl -f http://localhost:3000/api/health
+
+      - name: Stop production container
+        if: always()
+        run: docker rm -f production || true

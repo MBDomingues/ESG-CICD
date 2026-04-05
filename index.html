@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia Certa - Cadastro de Fornecedores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.svg" alt="Energia Certa Logo" class="favicon">
+                <h1>Energia Certa</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-header">
+                <h2>Cadastro de Fornecedores</h2>
+                <p>Preencha os dados abaixo para registrar um novo fornecedor no programa ESG.</p>
+            </div>
+
+            <form id="supplierForm">
+                <div class="form-section">
+                    <h3>Dados da Empresa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="razaoSocial">Razão Social *</label>
+                            <input type="text" id="razaoSocial" name="razaoSocial" required placeholder="Nome da empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="nomeFantasia">Nome Fantasia</label>
+                            <input type="text" id="nomeFantasia" name="nomeFantasia" placeholder="Nome fantasia">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ *</label>
+                            <input type="text" id="cnpj" name="cnpj" required placeholder="00.000.000/0000-00">
+                        </div>
+                        <div class="form-group">
+                            <label for="inscricaoEstadual">Inscrição Estadual</label>
+                            <input type="text" id="inscricaoEstadual" name="inscricaoEstadual" placeholder="Inscrição estadual">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="segmento">Segmento *</label>
+                            <select id="segmento" name="segmento" required>
+                                <option value="">Selecione...</option>
+                                <option value="energia">Energia Renovável</option>
+                                <option value="construcao">Construção Sustentável</option>
+                                <option value="residuos">Gestão de Resíduos</option>
+                                <option value="agua">Tratamento de Água</option>
+                                <option value="agricultura">Agricultura Sustentável</option>
+                                <option value="transporte">Transporte Limpo</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="porte">Porte da Empresa *</label>
+                            <select id="porte" name="porte" required>
+                                <option value="">Selecione...</option>
+                                <option value="mei">MEI</option>
+                                <option value="me">Microempresa</option>
+                                <option value="epe">Empresa de Pequeno Porte</option>
+                                <option value="medio">Médio Porte</option>
+                                <option value="grande">Grande Porte</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Contato e Localização</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="contato@empresa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="text" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="00000-000">
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select id="estado" name="estado">
+                                <option value="">UF</option>
+                                <option value="AC">AC</option><option value="AL">AL</option>
+                                <option value="AP">AP</option><option value="AM">AM</option>
+                                <option value="BA">BA</option><option value="CE">CE</option>
+                                <option value="DF">DF</option><option value="ES">ES</option>
+                                <option value="GO">GO</option><option value="MA">MA</option>
+                                <option value="MT">MT</option><option value="MS">MS</option>
+                                <option value="MG">MG</option><option value="PA">PA</option>
+                                <option value="PB">PB</option><option value="PR">PR</option>
+                                <option value="PE">PE</option><option value="PI">PI</option>
+                                <option value="RJ">RJ</option><option value="RN">RN</option>
+                                <option value="RS">RS</option><option value="RO">RO</option>
+                                <option value="RR">RR</option><option value="SC">SC</option>
+                                <option value="SP">SP</option><option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Certificações ESG</h3>
+                    <div class="form-row">
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="iso14001">
+                                ISO 14001
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="iso9001">
+                                ISO 9001
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="sa8000">
+                                SA8000
+                            </label>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="leed">
+                                LEED
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="b3">
+                                Índice B3 ICO2
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="certificacoes" value="ghg">
+                                Protocolo GHG
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="politicaAmbiental">Política Ambiental (URL do documento)</label>
+                        <input type="url" id="politicaAmbiental" name="politicaAmbiental" placeholder="https://exemplo.com/politica-ambiental.pdf">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn-secondary">Limpar</button>
+                    <button type="submit" class="btn-primary">Cadastrar Fornecedor</button>
+                </div>
+            </form>
+
+            <div id="message" class="message hidden"></div>
+
+            <div class="suppliers-list">
+                <h3>Fornecedores Cadastrados</h3>
+                <table id="suppliersTable">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>CNPJ</th>
+                            <th>Segmento</th>
+                            <th>Contato</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suppliersBody">
+                    </tbody>
+                </table>
+                <p id="emptyMsg" class="empty-msg">Nenhum fornecedor cadastrado ainda.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Energia Certa &copy; 2026 — Programa ESG de Sustentabilidade</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
