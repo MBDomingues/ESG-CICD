@@ -104,16 +104,3 @@ ESG-CICD/
 - **Testes:** Node.js `assert` (sem dependências externas)
 - **Tema ESG:** Eficiência energética e sustentabilidade — monitoramento de consumo, alertas automáticos, auditorias de conformidade
 
----
-
-## Checklist de Entrega
-
-| Item | OK |
-|---|---|
-| Projeto compactado em .ZIP com estrutura organizada | [x] |
-| Dockerfile funcional | [x] |
-| docker-compose.yml ou arquivos Kubernetes | [x] |
-| Pipeline com etapas de build, teste e deploy | [x] |
-| README.md com instruções e prints | [x] |
-| Documentação técnica com evidências (PDF ou PPT) | [ ] |
-| Deploy realizado nos ambientes staging e produção | [x] |
